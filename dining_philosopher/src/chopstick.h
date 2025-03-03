@@ -5,12 +5,12 @@
 
 class Chopstick {
 private:
-    std::mutex m;
-    
+  std::mutex m;
+
 public:
-    bool try_pickup();
-    void put_down();
-    bool is_available();
+  bool try_pickup();
+  void put_down();
+  bool is_available();
 };
 
 #endif
