@@ -43,51 +43,47 @@ int main() {
     }
     
 
-    while (window.isOpen()) {
-        std::optional<sf::Event> eventOpt = window.pollEvent();
+    // while (window.isOpen()) {
+    //     std::optional<sf::Event> eventOpt = window.pollEvent();
         
-        while (eventOpt) {
-            const sf::Event& event = *eventOpt;
+    //     while (eventOpt) {
+    //         const sf::Event& event = *eventOpt;
             
-            if (event.is<sf::Event::Closed>()) {
-                window.close();
-                simulation_done = true;
-            }
+    //         if (event.is<sf::Event::Closed>()) {
+    //             window.close();
+    //             simulation_done = true;
+    //         }
             
-            eventOpt = window.pollEvent();
-        }
+    //         eventOpt = window.pollEvent();
+    //     }
         
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
-            window.close();
-            simulation_done = true;
-        }
-        
-
-        if (Philosopher::total_eat >= num_philosopher) {
-            std::cout << "All philosophers have eaten once. Simulation complete!" << std::endl;
-            simulation_done = true;
-        }
-        
-        window.clear(sf::Color::Black);
+    //     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
+    //         window.close();
+    //         simulation_done = true;
+    //     }
         
 
+    //     if (Philosopher::total_eat >= num_philosopher) {
+    //         std::cout << "All philosophers have eaten once. Simulation complete!" << std::endl;
+    //         simulation_done = true;
+    //     }
+        
+    //     window.clear(sf::Color::Black);
+        
+
 
         
-        window.display();
+    //     window.display();
         
 
-        if (simulation_done && window.isOpen()) {
-            std::this_thread::sleep_for(std::chrono::seconds(2)); 
-            window.close();
-        }
-    }
-    
-
-    simulation_done = true;
+    //     if (simulation_done && window.isOpen()) {
+    //         std::this_thread::sleep_for(std::chrono::seconds(2)); 
+    //         window.close();
+    //     }
+    // }
+    // simulation_done = true;
     for (auto& t : threads) {
-        if (t.joinable()) {
-            t.join();
-        }
+        t.join();
     }
     
 

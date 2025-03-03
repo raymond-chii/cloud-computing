@@ -5,7 +5,7 @@
 class Philosopher {
 private:
     int id;
-    enum State {Thinking, Hungry, Eating};
+    enum State {Thinking, Eating};
     State current_state;
     bool has_eaten;
     
